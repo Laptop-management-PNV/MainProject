@@ -32,9 +32,9 @@ namespace LoanLaptopManagement.Controllers
                     {
                         new AdminModel().Create(model.name, model.password);
                         ViewBag.message = "Tạo mới thành công!";
-                    } catch (Exception ex)
+                    } catch
                     {
-                        ViewBag.errorMessage = ex.ToString();//"Xảy ra lỗi! Vui lòng thử lại!";
+                        ViewBag.errorMessage = "Xảy ra lỗi! Vui lòng thử lại!";
                     }
                 }
             }
