@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoanLaptopManagement.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,21 +11,13 @@ namespace LoanLaptopManagement.Controllers
     {
         public ActionResult Index()
         {
+            if (!Check.isLogedIn()) return RedirectToAction("Index", "Login");
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Logout()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            SessionHelper.setSession(null);
+            return RedirectToAction("Index", "Login");
         }
     }
 }

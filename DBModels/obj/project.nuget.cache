@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dpm9onIGVGk065xLsdQCRFARmwTOyfyr0/G1TTgVYYsZktRrWqfeE5KJpsRD0UHJ6+Lbm8gBAq3xCHC8by7ocw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dmin\\source\\repos\\MainProject\\LoanLaptopManagement\\DBModels\\DBModels.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dmin\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512"
+  ],
+  "logs": []
+}

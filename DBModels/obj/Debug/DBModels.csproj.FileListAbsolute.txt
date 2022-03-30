@@ -1,0 +1,10 @@
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\bin\Debug\DBModels.dll.config
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\bin\Debug\DBModels.dll
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\bin\Debug\DBModels.pdb
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\bin\Debug\EntityFramework.dll
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.csproj.AssemblyReference.cache
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.csproj.CoreCompileInputs.cache
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.csproj.CopyComplete
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.dll
+C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.pdb
