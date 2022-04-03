@@ -1,0 +1,54 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+
+.u__welcome-text {
+    padding: 30px 70px;
+    font-size: 35px;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #0054bb;
+}
+
+.u__laptop-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 0 25px 25px;
+    gap: 5px;
+    margin-right: 25px;
+}
+
+.u__laptop-cart {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #0054bb;
+}
+
+.u__img_size {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.u__laptop_name {
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.u__laptop_id {
+    margin: auto;
+}
+
+.u__banner {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+    .u__banner img {
+        width: 90%;
+        height: 100%;
+        margin: auto;
+    }
+

@@ -1,0 +1,38 @@
+﻿@model DBModels.Init.laptop
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var permission = LoanLaptopManagement.Core.SessionHelper.getSession().adminPermission;
+    var brand = new DBModels.BrandModel().getBrandById(Model.brand_id).name;
+}
+
+@if (permission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else if (Model == null)
+{
+    <h2 style="margin: auto auto; font-weight: bold">Oops! Không có laptop này!</h2>
+}
+else
+{
+    <h1 class="text-center mb-5" style="margin-top:5rem">Xóa dữ liệu máy tính</h1>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="w-50" style="; font-size: 1.5rem">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken();
+                <div class="text-center">
+                    <div>ID: <strong>@Model.id</strong></div>
+                    <div>Thương hiệu: <strong>@brand</strong></div>
+                    <div>Tên laptop: <strong>@Model.name</strong></div>
+                    <div>Ảnh: <strong>@Model.img</strong></div>
+                    <div class="text-danger">@ViewBag.errorMessage</div>
+                    <button class="mt-5 btn btn-outline-danger px-5" type="submit">Xóa</button>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+

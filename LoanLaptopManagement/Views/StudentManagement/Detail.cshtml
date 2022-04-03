@@ -1,0 +1,24 @@
+﻿@using DBModels.Init
+@model student
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var loanModel = new DBModels.LoanModel();
+}
+<div style="margin: auto auto; font-size: 1.5rem">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="text-center">
+            <div>Mã sinh viên: <span class="fw-bold">@Model.id</span></div>
+            <div>Tên sinh viên: <span class="fw-bold">@Model.name</span></div>
+            <div>Số điện thoại: <span class="fw-bold">@Model.name</span></div>
+            <div>trạng thái: <span class="fw-bold">@(Model.loan_status ? "Đã mượn laptop" : "Chưa mượn laptop")</span></div>
+            @if (Model.loan_status)
+            {
+                var detail = loanModel.getLoanDetailByStdId(Model.id);
+                <div>Mã laptop: <span class="fw-bold">@detail.laptop_id</span></div>
+                <div>Ngày mượn: <span class="fw-bold">@detail.loaned_date</span></div>
+                <div>Người cho mượn: <span class="fw-bold">@detail.admin_name</span></div>
+            }
+        </div>
+    </div>
+</div>

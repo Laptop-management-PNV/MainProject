@@ -1,0 +1,53 @@
+﻿@model DBModels.Init.admin
+@using LoanLaptopManagement.Core
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewBag.title = "Add New Admin";
+    var session = SessionHelper.getSession();
+}
+
+@if (session.adminPermission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else
+{
+    <section class="ftco-section">
+        <div class="container my-5 h-100">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">THÊM MỚI ADMIN</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        @using (Html.BeginForm("Create", null, FormMethod.Post, new { @class = "add-admin__form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="text-danger">@ViewBag.errorMessage</div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => model.name, new { @class = "form-control", @placeholder = "AdminName" })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(model => model.password, new { @class = "form-control mt-2", @id = "password-field", @placeholder = "Password", @type = "password" })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.permission, new SelectList(new List<Object> { new { item = "low" }, new { item = "high" } }, "item", "item"), new { @class = "form-control mt-2", @id = "password-field", @placeholder = "Password", @type = "password" })
+                                @Html.ValidationMessageFor(model => model.permission, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control mt-3 btn btn-primary submit px-3">Thêm Admin</button>
+                            </div>
+                        }
+                    </div>
+                    <h3 class="text-primary mt-2 text-center">@ViewBag.message</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <link rel="stylesheet" href="~/Assets/css/createAdminForm.css" />
+}

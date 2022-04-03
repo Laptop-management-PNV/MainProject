@@ -17,13 +17,15 @@ namespace DBModels.Init
         [StringLength(10)]
         public string id { get; set; }
 
-        public int? brand_id { get; set; }
+        public int brand_id { get; set; }
 
         [StringLength(100)]
         public string name { get; set; }
 
         [Column(TypeName = "text")]
         public string img { get; set; }
+
+        public bool loan_status { get; set; }
 
         public virtual brand brand { get; set; }
 

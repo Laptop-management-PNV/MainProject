@@ -24,6 +24,7 @@ namespace DBModels.Init
         [Required]
         [StringLength(10)]
         public string phone_number { get; set; }
+        public bool loan_status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<loan> loans { get; set; }

@@ -10,10 +10,10 @@ namespace DBModels.Init
     public partial class loan
     {
         public int id { get; set; }
-
+        
         [StringLength(10)]
         public string student_id { get; set; }
-
+       
         [StringLength(10)]
         public string laptop_id { get; set; }
 

@@ -1,0 +1,17 @@
+﻿@model DBModels.Init.admin
+@using LoanLaptopManagement.Core
+@{
+    ViewBag.name = "Xóa";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var session = SessionHelper.getSession();
+
+}
+@if (session.adminPermission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else
+{
+    @Html.Partial("_Delete_active_Admin");
+
+}

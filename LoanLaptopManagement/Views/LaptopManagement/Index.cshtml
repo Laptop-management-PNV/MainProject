@@ -1,0 +1,60 @@
+﻿@model  List<DBModels.Init.laptop>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var brandModel = new DBModels.BrandModel();
+    var permission = LoanLaptopManagement.Core.SessionHelper.getSession().adminPermission;
+}
+
+<h2 class="text-center fw-bold" style="margin-top: 5rem">Danh Sách Máy Tính</h2>
+@if (permission == "high")
+{
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="w-50 text-center">
+            <a role="button" class="btn btn-primary mb-3" href="@Url.Action("Create", "LaptopManagement")">Tạo mới Laptop</a>
+        </div>
+    </div>
+}
+<table class="table tabel-striped mb-5">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" class="ps-5">ID</th>
+            <th scope="col">Tên Hãng</th>
+            <th scope="col" class="ps-5">Tên</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var laptop in Model)
+        {
+            <tr>
+                <th scope="row" class="ps-5">@laptop.id</th>
+                <td>@brandModel.getBrandById(laptop.brand_id).name</td>
+                <td>@laptop.name</td>
+                <td><img src="@laptop.img" /></td>
+                <td>
+                    @if (laptop.loan_status)
+                    {
+                        <i class="fa-solid fa-circle text-danger"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-circle text-success"></i>
+                    }
+                </td>
+                <td>
+                    @if (permission == "high")
+                    {
+                        <span><a href="@Url.Action("Delete", "LaptopManagement")/@laptop.id">Xóa</a></span>
+                        <span> | </span>
+                        <span><a href="@Url.Action("Edit", "LaptopManagement")/@laptop.id">Sửa</a></span>
+                        <span> | </span>
+                    }
+                    <span><a href="@Url.Action("Detail", "LaptopManagement")/@laptop.id">Chi tiết</a></span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

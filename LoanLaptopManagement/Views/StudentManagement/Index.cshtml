@@ -1,0 +1,41 @@
+﻿@model  List<DBModels.Init.student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var brandModel = new DBModels.BrandModel();
+}
+
+<h2 class="text-center fw-bold" style="margin-top: 5rem">Danh Sách Sinh Viên</h2>
+
+<table class="table tabel-striped mb-5">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" class="ps-5">ID</th>
+            <th scope="col">Tên sinh viên</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var std in Model)
+        {
+            <tr>
+                <th scope="row" class="ps-5">@std.id</th>
+                <td>@std.name</td>
+                <td>@std.phone_number</td>
+                <td>
+                    @if (std.loan_status)
+                    {
+                        <i class="fa-solid fa-circle text-danger"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-circle text-success"></i>
+                    }
+                </td>
+                <td><a href="@Url.Action("Detail", "StudentManagement")/@std.id">Chi tiết</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

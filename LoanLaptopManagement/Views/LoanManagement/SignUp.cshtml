@@ -1,0 +1,24 @@
+﻿@model DBModels.Init.loan
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var laptopList = new DBModels.LaptopModel().getFreeLaptopList();
+}
+
+<h2 class="text-center fw-bold" style="margin-top: 5rem">Đăng Ký Mượn Laptop</h2>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="w-50">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="mt-4 mb-2">Mã sinh viên:</div>
+            @Html.TextBoxFor(m => m.student_id, "", new { @class = "form-control", @Value = ViewData["studentId"] })
+            <div class="mt-3 mb-2">Tên Laptop:</div>
+            @Html.DropDownListFor(m => m.laptop_id, new SelectList(laptopList, "id", "name"), new { @class = "form-control mt-3" })
+            <div class="text-center text-danger my-3">@ViewBag.errorMessage</div>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary mt-3" type="submit">Đăng ký</button>
+            </div>
+        }
+    </div>
+</div>

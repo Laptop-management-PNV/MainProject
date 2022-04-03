@@ -18,6 +18,7 @@ namespace DBModels.Init
         public virtual DbSet<loan> loans { get; set; }
         public virtual DbSet<spec> specs { get; set; }
         public virtual DbSet<student> students { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +28,10 @@ namespace DBModels.Init
 
             modelBuilder.Entity<admin>()
                 .Property(e => e.password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.permission)
                 .IsUnicode(false);
 
             modelBuilder.Entity<admin>()
@@ -40,8 +45,9 @@ namespace DBModels.Init
 
             modelBuilder.Entity<brand>()
                 .HasMany(e => e.laptops)
-                .WithOptional(e => e.brand)
-                .HasForeignKey(e => e.brand_id);
+                .WithRequired(e => e.brand)
+                .HasForeignKey(e => e.brand_id)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<laptop>()
                 .Property(e => e.id)
@@ -93,7 +99,7 @@ namespace DBModels.Init
                 .IsUnicode(false);
 
             modelBuilder.Entity<spec>()
-                .Property(e => e.screen_solution)
+                .Property(e => e.resolution)
                 .IsUnicode(false);
 
             modelBuilder.Entity<student>()
@@ -102,7 +108,7 @@ namespace DBModels.Init
 
             modelBuilder.Entity<student>()
                 .Property(e => e.name)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<student>()
                 .Property(e => e.phone_number)

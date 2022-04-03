@@ -1,0 +1,67 @@
+﻿@model LoanLaptopManagement.Models.LaptopAndSpec
+@{
+    var brandList = new DBModels.BrandModel().getBrandList();
+}
+
+<link rel="stylesheet" href="~/Assets/css/laptopForm.css" />
+<div class="d-flex justify-content-center align-items-center" style="margin-top: 3rem">
+    <div class="w-50 py-5">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="title text-center">@ViewBag.name</div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.id, new { htmlAttributes = new { @class = "input", @id = "lapid" } })
+                @Html.ValidationMessageFor(m => m.id, "", new { @class = "text-danger" })
+                <div class="cut"></div>
+                <label for="lapid" class="placeholder">Id Laptop</label>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.name, new { htmlAttributes = new { @class = "input", @id = "lapname" } })
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                <div class="cut"></div>
+                <label for="lapname" class="placeholder">Tên Laptop</label>
+            </div>
+            <div class="input-container ic1">
+                <div class="select">
+                    @Html.DropDownListFor(m => m.brand_id, new SelectList(brandList, "id", "name"))
+                </div>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.img, new { htmlAttributes = new { @class = "input", @id = "img" } })
+                @Html.ValidationMessageFor(m => m.img, "", new { @class = "text-danger" })
+                <div class="cut cut-short"></div>
+                <label for="img" class="placeholder">Ảnh</label>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.memory, new { htmlAttributes = new { @class = "input", @id = "memory" } })
+                @Html.ValidationMessageFor(m => m.memory, "", new { @class = "text-danger" })
+                <div class="cut cut-short"></div>
+                <label for="memory" class="placeholder">Bộ nhớ</label>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.hard_drive, new { htmlAttributes = new { @class = "input", @id = "graphiccard" } })
+                @Html.ValidationMessageFor(m => m.hard_drive, "", new { @class = "text-danger" })
+                <div class="cut cut-short"></div>
+                <label for="harddrive" class="placeholder">Ổ cứng</label>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.graphic_card, new { htmlAttributes = new { @class = "input", @id = "harddrive" } })
+                @Html.ValidationMessageFor(m => m.hard_drive, "", new { @class = "text-danger" })
+                <div class="cut cut-short"></div>
+                <label for="graphiccard" class="placeholder">Card đồ họa</label>
+            </div>
+            <div class="input-container ic2">
+                @Html.EditorFor(m => m.resolution, new { htmlAttributes = new { @class = "input", @id = "resolution" } })
+                @Html.ValidationMessageFor(m => m.resolution, "", new { @class = "text-danger" })
+                <div class="cut cut-short1"></div>
+                <label for="reolution" class="placeholder">Độ phân giải màn hình</label>
+            </div>
+            <div class="text-danger">@ViewBag.errorMessage</div>
+            if (ViewBag.hasButton)
+            {
+                <button type="submit" class="submit">@ViewBag.name</button>
+            }
+        }
+    </div>
+</div>

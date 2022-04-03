@@ -21,9 +21,11 @@ namespace LoanLaptopManagement.Controllers
         public ActionResult Index(admin model)
         {
             if (ModelState.IsValid) {
-               if (new AdminModel().Login(model.name, model.password))
+               var adminModel = new AdminModel();
+               if (adminModel.Login(model.name, model.password))
                {
-                    SessionHelper.setSession(new AdminSession() { adminName = model.name });
+                    var admin = adminModel.getAdminByName(model.name);
+                    SessionHelper.setSession(new AdminSession() { adminName = admin.name, adminPermission = admin.permission }) ;
                     return RedirectToAction("Index", "Home");
                } else
                {

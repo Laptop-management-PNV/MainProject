@@ -1,0 +1,17 @@
+﻿@model LoanLaptopManagement.Models.LaptopAndSpec
+@{
+    ViewBag.name = "Thêm laptop mới";
+    ViewBag.Title = "Thêm laptop mới";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var permission = LoanLaptopManagement.Core.SessionHelper.getSession().adminPermission;
+    ViewBag.hasButton = true;
+}
+
+@if (permission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else
+{
+    @Html.Partial("_LaptopForm")
+}

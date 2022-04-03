@@ -1,0 +1,29 @@
+﻿@model DBModels.Init.admin
+@using LoanLaptopManagement.Core
+@{
+    var session = SessionHelper.getSession();
+
+}
+
+@if (session.adminPermission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else
+{
+    <h2 class="text-center my-3">Bạn có chắc muốn @ViewBag.name?</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="w-50 text-center fw-bold">
+            @using (Html.BeginForm())
+            {
+                <div>Admin Name: @Html.TextBoxFor(m => m.name, new { @disabled = "true" })</div>
+                <div>Admin Permission: @Html.TextBoxFor(m => m.permission, new { @disabled = "true" })</div>
+                @Html.Password("password", null, new { @class = "form-control my-3", @placeholder = "Vui lòng nhập lại mật khẩu để xóa..." })
+                <div class="text-danger mb-3">@ViewBag.errorMessage</div>
+                <button class="btn btn-danger" type="submit">@ViewBag.name</button>
+            }
+        </div>
+
+    </div>
+}
+

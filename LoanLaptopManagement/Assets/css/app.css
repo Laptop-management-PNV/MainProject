@@ -4499,20 +4499,22 @@ fieldset:disabled .btn {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0.875rem 1.375rem;
-    position: relative;
+    position: fixed;
+    z-index: 1000;
+    width: 82%
 }
 
-    .navbar > .container,
-    .navbar > .container-fluid,
-    .navbar > .container-lg,
-    .navbar > .container-md,
-    .navbar > .container-sm,
-    .navbar > .container-xl {
-        align-items: center;
-        display: flex;
-        flex-wrap: inherit;
-        justify-content: space-between;
-    }
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-lg,
+.navbar > .container-md,
+.navbar > .container-sm,
+.navbar > .container-xl {
+    align-items: center;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+}
 
 .navbar-brand {
     margin-right: 1rem;

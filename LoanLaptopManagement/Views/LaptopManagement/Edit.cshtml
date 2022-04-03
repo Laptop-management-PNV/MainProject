@@ -1,0 +1,23 @@
+﻿@model LoanLaptopManagement.Models.LaptopAndSpec
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin máy tính";
+    ViewBag.name = "Chỉnh sửa";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var permission = LoanLaptopManagement.Core.SessionHelper.getSession().adminPermission;
+    ViewBag.hasButton = true;
+}
+
+@if (permission == "low")
+{
+    <h2 class="text-danger" style="margin: auto auto; font-weight: bold">Sorry! Bạn không có quyền truy cập chức năng này!</h2>
+}
+else if (Model == null)
+{
+    <div style="margin: auto auto">Oops! Máy tính không tồn tại!</div>
+}
+else
+{
+    @Html.Partial("_LaptopForm")
+}
+
+

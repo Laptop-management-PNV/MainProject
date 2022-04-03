@@ -1,0 +1,61 @@
+﻿@model  List<DBModels.Init.loan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var count = 1;
+}
+
+
+<h2 class="text-center fw-bold" style="margin-top: 5rem">Lịch Sử Mượn Laptop</h2>
+<div class="d-flex justify-content-center align-items-center my-3">
+    <div class="w-50 text-center">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-8">
+                    @Html.TextBox("studentId", "", new { @class = "form-control", @placeholder = "Nhập mã sinh viên cần mượn laptop..." })
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-outline-primary" type="submit">Đăng ký</button>
+                </div>
+            </div>
+            <div class="text-center text-danger mt-3">@ViewBag.errorMessage</div>
+            }
+    </div>
+</div>
+@if (Model.Count == 0)
+{
+    <div style="margin: auto auto; font-weight: bold">Oops! Chưa có lịch sử mượn!</div>
+}
+else
+{
+    <table class="table tabel-striped mb-5">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" class="ps-5">STT</th>
+                <th scope="col">Mã sinh viên</th>
+                <th scope="col">Mã laptop</th>
+                <th scope="col">Ngày mượn</th>
+                <th scope="col">Ngày trả</th>
+                <th scope="col">Người cho mượn</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var history in Model)
+            {
+                <tr>
+                    <th scope="row" class="ps-5">@count</th>
+                    <td><a href="@Url.Action("Detail", "StudentManagement")/@history.student_id">@history.student_id</a></td>
+                    <td><a href="@Url.Action("Detail", "LaptopManagement")/@history.laptop_id">@history.laptop_id</a></td>
+                    <td>@history.loaned_date.ToString()</td>
+                    <td>@(history.returned_date == null ? "Chưa trả máy" : history.returned_date.ToString())</td>
+                    <td>@history.admin_name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

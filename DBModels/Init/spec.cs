@@ -15,14 +15,14 @@ namespace DBModels.Init
         [StringLength(30)]
         public string memory { get; set; }
 
-        [StringLength(6)]
+        [StringLength(10)]
         public string hard_drive { get; set; }
 
         [StringLength(50)]
         public string graphic_card { get; set; }
 
         [StringLength(11)]
-        public string screen_solution { get; set; }
+        public string resolution { get; set; }
 
         public virtual laptop laptop { get; set; }
     }

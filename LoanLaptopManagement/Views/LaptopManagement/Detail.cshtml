@@ -1,0 +1,18 @@
+﻿@model LoanLaptopManagement.Models.LaptopAndSpec
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var permission = LoanLaptopManagement.Core.SessionHelper.getSession().adminPermission;
+    ViewBag.hasButton = false;
+    ViewBag.name = "Chi tiết";
+}
+
+@if (Model == null)
+{
+    <div style="margin: auto auto; font-weight: bold">Oops! Máy tính không tồn tại!</div>
+}
+else
+{
+    @Html.Partial("_LaptopForm")
+}
+
+

@@ -128,19 +128,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CreateAdminController.cs" />
+    <Compile Include="Controllers\AdminManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoanManagementController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LaptopManagementController.cs" />
+    <Compile Include="Controllers\StudentManagementController.cs" />
     <Compile Include="Core\AdminSession.cs" />
     <Compile Include="Core\Check.cs" />
     <Compile Include="Core\SessionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LaptopAndSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\app.css" />
+    <Content Include="Assets\css\createAdminForm.css" />
+    <Content Include="Assets\css\homepage.css" />
+    <Content Include="Assets\css\laptopForm.css" />
     <Content Include="Assets\css\login.css" />
     <Content Include="Assets\img\bglogin.jpg" />
     <Content Include="Assets\img\logo.jpg" />
@@ -164,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -173,7 +179,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\CreateAdmin\Index.cshtml" />
+    <Content Include="Views\AdminManagement\Create.cshtml" />
+    <Content Include="Views\LaptopManagement\Index.cshtml" />
+    <Content Include="Views\LaptopManagement\Delete.cshtml" />
+    <Content Include="Views\LaptopManagement\Edit.cshtml" />
+    <Content Include="Views\StudentManagement\Index.cshtml" />
+    <Content Include="Views\LoanManagement\Index.cshtml" />
+    <Content Include="Views\AdminManagement\Index.cshtml" />
+    <Content Include="Views\AdminManagement\Delete.cshtml" />
+    <Content Include="Views\AdminManagement\Active.cshtml" />
+    <Content Include="Views\Shared\_Delete_active_Admin.cshtml" />
+    <Content Include="Views\Shared\_LaptopForm.cshtml" />
+    <Content Include="Views\LaptopManagement\Create.cshtml" />
+    <Content Include="Views\LaptopManagement\Detail.cshtml" />
+    <Content Include="Views\StudentManagement\Detail.cshtml" />
+    <Content Include="Views\LoanManagement\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
