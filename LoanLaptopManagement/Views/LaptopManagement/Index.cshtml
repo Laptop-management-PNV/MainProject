@@ -45,14 +45,18 @@
                     }
                 </td>
                 <td>
-                    @if (permission == "high")
+                    @if (!laptop.is_deleted)
                     {
-                        <span><a href="@Url.Action("Delete", "LaptopManagement")/@laptop.id">Xóa</a></span>
-                        <span> | </span>
-                        <span><a href="@Url.Action("Edit", "LaptopManagement")/@laptop.id">Sửa</a></span>
-                        <span> | </span>
+                        if (permission == "high")
+                        {
+                            <span><a href="@Url.Action("Delete", "LaptopManagement")/@laptop.id">Xóa</a></span>
+                            <span> | </span>
+                            <span><a href="@Url.Action("Edit", "LaptopManagement")/@laptop.id">Sửa</a></span>
+                            <span> | </span>
+                        }
+                        <span><a href="@Url.Action("Detail", "LaptopManagement")/@laptop.id">Chi tiết</a></span>
                     }
-                    <span><a href="@Url.Action("Detail", "LaptopManagement")/@laptop.id">Chi tiết</a></span>
+
                 </td>
             </tr>
         }

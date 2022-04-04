@@ -18,12 +18,13 @@ namespace DBModels.Init
         public string id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         public string name { get; set; }
 
         [Required]
         [StringLength(10)]
         public string phone_number { get; set; }
+
         public bool loan_status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

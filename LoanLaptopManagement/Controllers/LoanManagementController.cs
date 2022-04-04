@@ -56,7 +56,7 @@ namespace LoanLaptopManagement.Controllers
         {
             try
             {
-                model.loaned_date = DateTime.Now;
+                model.loaned_date = DateTime.Now.Date;
                 model.admin_name = SessionHelper.getSession().adminName;
                 new LoanModel().createLoanDetail(model);
                 new StudentModel().updateLoanStatus(model.student_id);
@@ -64,9 +64,32 @@ namespace LoanLaptopManagement.Controllers
                 return RedirectToAction("Index", "LoanManagement");
             } catch (Exception ex)
             {
-                ViewBag.errorMessage = model.laptop_id + " " + ex.ToString();
+                ViewBag.errorMessage = ex.ToString();//Có lỗi xảy ra, vui lòng thử lại!;
             }
-            return View();
+            return View(model);
+        }
+        public ActionResult Return(string id)
+        {
+            if (!Check.isLogedIn()) return RedirectToAction("Index", "Login");
+            if (id == null) return RedirectToAction("Index", "LoanManagement");
+            return View(new LoanModel().getLoanDetailByStdId(id));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Return(loan model)
+        {
+            try
+            {
+                model.returned_date = DateTime.Now;
+                new LoanModel().updateReturnedDate(model);
+                new StudentModel().updateLoanStatus(model.student_id);
+                new LaptopModel().updateLoanStatus(model.laptop_id);
+                return RedirectToAction("Index", "LoanManagement");
+            } catch (Exception ex)
+            {
+                ViewBag.errorMessage = ex.ToString();//"Có lỗi xảy ra, vui lòng thử lại!";
+            }
+            return View(model);
         }
     }
 }

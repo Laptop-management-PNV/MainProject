@@ -1,0 +1,25 @@
+﻿@model DBModels.Init.loan
+@{
+    ViewBag.Title = "Return";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@if (Model == null)
+{
+    <div style="margin: auto auto; font-weight: bold">Oops! Lịch sử mượn không tồn tại!</div>
+}
+<h2 class="text-center fw-bold" style="margin-top: 5rem">Trả Laptop</h2>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="w-50 text-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.EditorFor(m => m.student_id, new { htmlAttributes = new { @type = "hidden" } })
+            @Html.EditorFor(m => m.laptop_id, new { htmlAttributes = new { @type = "hidden" } })
+            <div class="mt-4 mb-2">Mã sinh viên:<strong>@Model.student_id</strong></div>
+            <div class="mt-3 mb-2">Tên Laptop:<strong>@Model.laptop_id</strong></div>
+            <div class="text-danger mt-3 mb-2">@ViewBag.errorMessage</div>
+            <button class="btn btn-primary mt-3" type="submit">Đã trả laptop</button>
+        }
+    </div>
+</div>

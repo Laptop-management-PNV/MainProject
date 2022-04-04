@@ -55,7 +55,7 @@ namespace DBModels.Init
 
             modelBuilder.Entity<laptop>()
                 .Property(e => e.name)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<laptop>()
                 .Property(e => e.img)
@@ -105,10 +105,6 @@ namespace DBModels.Init
             modelBuilder.Entity<student>()
                 .Property(e => e.id)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<student>()
-                .Property(e => e.name)
-                .IsUnicode(true);
 
             modelBuilder.Entity<student>()
                 .Property(e => e.phone_number)

@@ -10,7 +10,7 @@
         <div class="text-center">
             <div>Mã sinh viên: <span class="fw-bold">@Model.id</span></div>
             <div>Tên sinh viên: <span class="fw-bold">@Model.name</span></div>
-            <div>Số điện thoại: <span class="fw-bold">@Model.name</span></div>
+            <div>Số điện thoại: <span class="fw-bold">@Model.phone_number</span></div>
             <div>trạng thái: <span class="fw-bold">@(Model.loan_status ? "Đã mượn laptop" : "Chưa mượn laptop")</span></div>
             @if (Model.loan_status)
             {

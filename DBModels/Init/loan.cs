@@ -10,17 +10,15 @@ namespace DBModels.Init
     public partial class loan
     {
         public int id { get; set; }
-        
+
         [StringLength(10)]
         public string student_id { get; set; }
-       
+
         [StringLength(10)]
         public string laptop_id { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? loaned_date { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? returned_date { get; set; }
 
         [StringLength(20)]

@@ -194,6 +194,7 @@
     <Content Include="Views\LaptopManagement\Detail.cshtml" />
     <Content Include="Views\StudentManagement\Detail.cshtml" />
     <Content Include="Views\LoanManagement\SignUp.cshtml" />
+    <Content Include="Views\LoanManagement\Return.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">

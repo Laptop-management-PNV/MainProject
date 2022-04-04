@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
-    var count = 1;
 }
 
 
@@ -33,12 +32,13 @@ else
     <table class="table tabel-striped mb-5">
         <thead class="table-dark">
             <tr>
-                <th scope="col" class="ps-5">STT</th>
+                <th scope="col" class="ps-5">Mã lượt mượn</th>
                 <th scope="col">Mã sinh viên</th>
                 <th scope="col">Mã laptop</th>
                 <th scope="col">Ngày mượn</th>
                 <th scope="col">Ngày trả</th>
                 <th scope="col">Người cho mượn</th>
+                <th scope="col">Thao tác</th>
             </tr>
         </thead>
 
@@ -47,12 +47,17 @@ else
             @foreach (var history in Model)
             {
                 <tr>
-                    <th scope="row" class="ps-5">@count</th>
+                    <th scope="row" class="ps-5">@history.id</th>
                     <td><a href="@Url.Action("Detail", "StudentManagement")/@history.student_id">@history.student_id</a></td>
                     <td><a href="@Url.Action("Detail", "LaptopManagement")/@history.laptop_id">@history.laptop_id</a></td>
                     <td>@history.loaned_date.ToString()</td>
                     <td>@(history.returned_date == null ? "Chưa trả máy" : history.returned_date.ToString())</td>
                     <td>@history.admin_name</td>
+                    <td>
+                        @if (history.returned_date == null)
+                        {
+                            <a role="button" class="btn btn-success" href="@Url.Action("Return", "LoanManagement")/@history.student_id">Trả laptop</a>
+                        }
                 </tr>
             }
         </tbody>

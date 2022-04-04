@@ -27,6 +27,8 @@ namespace DBModels.Init
 
         public bool loan_status { get; set; }
 
+        public bool is_deleted { get; set; }
+
         public virtual brand brand { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
