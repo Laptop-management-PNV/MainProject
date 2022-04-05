@@ -27,17 +27,19 @@ namespace LoanLaptopManagement.Controllers
         [HttpPost]
         public ActionResult Create(LaptopAndSpec model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                new LaptopModel().Create(model.getLaptop());
-                new SpecModel().Create(model.getSpec());
-                return RedirectToAction("Index", "LaptopManagement");
-            } 
-            catch (Exception ex)
-            {
-                ViewBag.errorMessage = ex.ToString();//"Có lỗi xảy ra!";
+                try
+                {
+                    new LaptopModel().Create(model.getLaptop());
+                    new SpecModel().Create(model.getSpec());
+                    return RedirectToAction("Index", "LaptopManagement");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.errorMessage = ex.ToString();//"Có lỗi xảy ra!";
+                }
             }
-           
             return View(model);
         }
 

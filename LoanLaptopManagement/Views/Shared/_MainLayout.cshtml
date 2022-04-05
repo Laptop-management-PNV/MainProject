@@ -72,10 +72,15 @@
         </nav>
 
         <div class="main">
-            <nav class="navbar navbar-expand navbar-light navbar-bg">
-                <a class="sidebar-toggle js-sidebar-toggle">
+            <nav class="navbar navbar-expand navbar-light navbar-bg" id="navbar">
+                <a class="sidebar-toggle js-sidebar-toggle" id="navbar__toggle-btn">
                     <i class="hamburger align-self-center"></i>
                 </a>
+                <script>
+                    document.getElementById("navbar__toggle-btn").addEventListener("click", () => {
+                        document.getElementById("navbar").classList.toggle("expand-100")
+                    })
+                </script>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
                         <li class="nav-item dropdown">

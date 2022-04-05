@@ -56,7 +56,7 @@ namespace LoanLaptopManagement.Controllers
         {
             try
             {
-                model.loaned_date = DateTime.Now.Date;
+                model.loaned_date = DateTime.Now;
                 model.admin_name = SessionHelper.getSession().adminName;
                 new LoanModel().createLoanDetail(model);
                 new StudentModel().updateLoanStatus(model.student_id);

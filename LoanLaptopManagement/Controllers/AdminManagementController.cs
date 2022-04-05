@@ -48,14 +48,14 @@ namespace LoanLaptopManagement.Controllers
         }
 
         [HttpGet]
-        public ActionResult Delete(string adminName)
+        public ActionResult Delete(string id)
         {
             if (!Check.isLogedIn()) return RedirectToAction("Index", "Login");
-            if (adminName == null)
+            if (id == null)
             {
                 return RedirectToAction("Index", "AdminManagement");
             }
-            return View(new AdminModel().getAdminByName(adminName));
+            return View(new AdminModel().getAdminByName(id));
         }
         [HttpPost]
         public ActionResult Delete(string id, FormCollection collector)
@@ -86,14 +86,14 @@ namespace LoanLaptopManagement.Controllers
             }
             return View(new AdminModel().getAdminByName(id));
         }
-        public ActionResult Active(string adminName)
+        public ActionResult Active(string id)
         {
             if (!Check.isLogedIn()) return RedirectToAction("Index", "Login");
-            if (adminName == null)
+            if (id == null)
             {
                 return RedirectToAction("Index", "AdminManagement");
             }
-            return View(new AdminModel().getAdminByName(adminName));
+            return View(new AdminModel().getAdminByName(id));
         }
         [HttpPost]
         public ActionResult Active(string id, FormCollection collector)

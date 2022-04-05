@@ -35,13 +35,20 @@
                 <td>@laptop.name</td>
                 <td><img src="@laptop.img" /></td>
                 <td>
-                    @if (laptop.loan_status)
+                    @if (!laptop.is_deleted)
                     {
-                        <i class="fa-solid fa-circle text-danger"></i>
-                    }
+                        if (laptop.loan_status)
+                        {
+                            <i class="fa-solid fa-circle text-danger"></i>
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-circle text-success"></i>
+                        }
+                    } 
                     else
                     {
-                        <i class="fa-solid fa-circle text-success"></i>
+                        <div>Đã bị xóa</div>
                     }
                 </td>
                 <td>

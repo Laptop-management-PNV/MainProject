@@ -18,7 +18,6 @@ namespace LoanLaptopManagement.Models
         [Required]
         [StringLength(100)]
         public string name { get; set; }
-        [Required]
         [Column(TypeName = "text")]
         public string img { get; set; }
         public string memory { get; set; }
