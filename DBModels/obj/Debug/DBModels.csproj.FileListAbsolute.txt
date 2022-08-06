@@ -8,3 +8,13 @@ C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\D
 C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.csproj.CopyComplete
 C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.dll
 C:\Users\dmin\source\repos\MainProject\LoanLaptopManagement\DBModels\obj\Debug\DBModels.pdb
+D:\HieuNguyen23\MainProject\DBModels\obj\Debug\DBModels.dll
+D:\HieuNguyen23\MainProject\DBModels\obj\Debug\DBModels.pdb
+D:\HieuNguyen23\MainProject\DBModels\bin\Debug\DBModels.dll.config
+D:\HieuNguyen23\MainProject\DBModels\bin\Debug\DBModels.dll
+D:\HieuNguyen23\MainProject\DBModels\bin\Debug\DBModels.pdb
+D:\HieuNguyen23\MainProject\DBModels\bin\Debug\EntityFramework.SqlServer.dll
+D:\HieuNguyen23\MainProject\DBModels\bin\Debug\EntityFramework.dll
+D:\HieuNguyen23\MainProject\DBModels\obj\Debug\DBModels.csproj.AssemblyReference.cache
+D:\HieuNguyen23\MainProject\DBModels\obj\Debug\DBModels.csproj.CoreCompileInputs.cache
+D:\HieuNguyen23\MainProject\DBModels\obj\Debug\DBModels.csproj.CopyComplete

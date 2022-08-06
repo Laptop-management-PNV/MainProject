@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dpm9onIGVGk065xLsdQCRFARmwTOyfyr0/G1TTgVYYsZktRrWqfeE5KJpsRD0UHJ6+Lbm8gBAq3xCHC8by7ocw==",
+  "dgSpecHash": "18uSjwoX06LHhKg7JqpFj9fUM30a5Km/lB++GHFpsg5VsYQrpu90NxgxyhXuheNvfvIyy26lobLP4tGT5OvEyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dmin\\source\\repos\\MainProject\\LoanLaptopManagement\\DBModels\\DBModels.csproj",
+  "projectFilePath": "D:\\HieuNguyen23\\MainProject\\DBModels\\DBModels.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dmin\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512"
+    "C:\\Users\\HIEU\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512"
   ],
   "logs": []
 }

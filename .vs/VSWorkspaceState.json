@@ -2,12 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LoanLaptopManagement",
-    "\\LoanLaptopManagement\\Assets",
-    "\\LoanLaptopManagement\\Assets\\css",
     "\\LoanLaptopManagement\\Core",
     "\\LoanLaptopManagement\\Views",
     "\\LoanLaptopManagement\\Views\\Home"
   ],
-  "SelectedNode": "\\LoanLaptopManagement\\Core\\SessionHelper.cs",
+  "SelectedNode": "\\LoanLaptopManagement",
   "PreviewInSolutionExplorer": false
 }

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="~/Assets/css/laptopForm.css" />
 <div class="d-flex justify-content-center align-items-center" style="margin-top: 3rem">
     <div class="w-50 py-5">
-        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form" }))
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form", @enctype="multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <div class="title text-center">@ViewBag.name</div>
@@ -28,10 +28,13 @@
                 </div>
             </div>
             <div class="input-container ic2">
-                @Html.EditorFor(m => m.img, new { htmlAttributes = new { @class = "input", @id = "img" } })
-                @Html.ValidationMessageFor(m => m.img, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(m => m.img, new { htmlAttributes = new { @class = "input", @id = "img" } })*@
+                @Html.TextBox("file", "", new { type = "file" })<br>
+                @if (ViewBag.fileError != null)
+                {
+                   <div class="text-danger">@ViewBag.fileError</div>
+                }
                 <div class="cut cut-short"></div>
-                <label for="img" class="placeholder">Ảnh</label>
             </div>
             <div class="input-container ic2">
                 @Html.EditorFor(m => m.memory, new { htmlAttributes = new { @class = "input", @id = "memory" } })
